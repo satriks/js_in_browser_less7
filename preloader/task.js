@@ -1,5 +1,6 @@
+ (function () {
+
     document.addEventListener('DOMContentLoaded', printFromLocalStorage)
-    
     fetch('https://students.netoservices.ru/nestjs-backend/slow-get-courses')
         .then(response => response.json())
         .then(ans => {
@@ -30,12 +31,13 @@
             </.div>`
             )}
             document.querySelector('#loader').classList.remove('loader_active')
-    }
+        }
         
-    function printFromLocalStorage() {
+        function printFromLocalStorage() {
             const data =JSON.parse(localStorage.getItem('data')) || {}
             if (Object.keys(data).length) {
                 console.log('Storage data');
                 createValute(data); 
             }          
     }
+})()   
